@@ -6,3 +6,4 @@ go:
 install:
   - go get github.com/segmentio/analytics-go
   - go get github.com/sendgrid/sendgrid-go
+  - go get github.com/smartystreets/goconvey
