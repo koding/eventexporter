@@ -1,4 +1,4 @@
-# eventexporter
+# eventexporter [![Build Status](https://travis-ci.org/koding/eventexporter.svg?branch=master)](https://travis-ci.org/koding/eventexporter)
 
 eventexporter is a library to export events to 3rd party services.
 
