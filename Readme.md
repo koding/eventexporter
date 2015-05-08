@@ -26,12 +26,11 @@ FakeExporter is an implementation of Exporter to be used in tests.
 ```go
 import (
   "github.com/koding/eventexporter"
-  "github.com/koding/eventexporter/eventexportertest"
 )
 
 event := &eventexporter.Event{Name: "test event"}
 
-client := eventexportertest.NewFakeExporter()
+client := eventexporter.NewFakeExporter()
 client.Send(event)
 
 fmt.Println(client.Events)
