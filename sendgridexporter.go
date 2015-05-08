@@ -42,6 +42,10 @@ func (s *SendgridExporter) Send(event *Event) error {
 	return s.Client.Send(mail)
 }
 
+func (s *SendgridExporter) Close() error {
+	return nil
+}
+
 func setTo(mail *sendgrid.SGMail, event *Event) (*sendgrid.SGMail, error) {
 	err := mail.AddTo(event.User.Email)
 	if err != nil {
