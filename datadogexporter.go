@@ -2,6 +2,7 @@ package eventexporter
 
 import kodingmetrics "github.com/koding/metrics"
 
+// DatadogExporter exports events to datadog
 type DatadogExporter struct {
 	datadog *kodingmetrics.DogStatsD
 }
@@ -29,6 +30,11 @@ func (d *DatadogExporter) Send(m *Event) error {
 	return nil
 }
 
+// Name returns the name of the exporter.
+func (DatadogExporter) Name() string { return "datadog" }
+
+// Close closes the publisher. DogStatsD is treated as external resource so does
+// nothing.
 func (d *DatadogExporter) Close() error {
 	return nil
 }
