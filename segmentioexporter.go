@@ -51,15 +51,22 @@ func buildTrack(event *Event) (*analytics.Track, error) {
 		Event:      event.Name,
 		UserId:     event.User.Username,
 		Properties: event.Properties,
+		Context:    event.Context,
 	}, nil
 }
+
+// Name returns the name of the exporter.
+func (SegmentIOExporter) Name() string { return "segment" }
 
 func addBody(event *Event) *Event {
 	if event.Properties == nil {
 		event.Properties = map[string]interface{}{}
 	}
 
-	event.Properties["email"] = event.User.Email
+	if event.Properties["email"] == nil {
+		event.Properties["email"] = event.User.Email
+	}
+
 	event.Properties["currentDate"] = time.Now().UTC().Format(DateLayout)
 
 	if event.Body != nil {
